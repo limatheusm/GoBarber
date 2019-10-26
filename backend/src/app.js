@@ -2,9 +2,10 @@ import 'dotenv/config';
 
 import express from 'express';
 import Youch from 'youch';
+import cors from 'cors';
 import { resolve } from 'path';
 import * as Sentry from '@sentry/node';
-// Must be imported before routes[ML]
+// Must be imported before routes [ML]
 import 'express-async-errors';
 
 import routes from './routes';
@@ -25,6 +26,7 @@ class App {
 
   middlewares() {
     this.server.use(Sentry.Handlers.requestHandler());
+    this.server.use(cors());
     this.server.use(express.json());
     this.server.use(
       '/files',
