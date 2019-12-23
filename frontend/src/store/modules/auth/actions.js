@@ -1,5 +1,6 @@
 export const Types = {
   SIGN_IN_REQUEST: "@auth/SIGN_IN_REQUEST",
+  SIGN_UP_REQUEST: "@auth/SIGN_UP_REQUEST",
   SIGN_IN_SUCCESS: "@auth/SIGN_IN_SUCCESS",
   SIGN_FAILURE: "@auth/SIGN_FAILURE"
 };
@@ -8,6 +9,13 @@ export function signInRequest(email, password) {
   return {
     type: Types.SIGN_IN_REQUEST,
     payload: { email, password }
+  };
+}
+
+export function signUpRequest(name, email, password) {
+  return {
+    type: Types.SIGN_UP_REQUEST,
+    payload: { name, email, password }
   };
 }
 
