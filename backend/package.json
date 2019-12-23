@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "queue": "nodemon src/queue.js",
-    "docker-dev": "docker start database mongobarber redisbarber"
+    "docker-dev": "docker start postgres mongo redis"
   },
   "dependencies": {
     "@sentry/node": "5.6.1",

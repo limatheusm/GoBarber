@@ -17,8 +17,10 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 const upload = multer(multerConfig);
 
+// region Debug route [ML]
 routes.get('/users', UserController.index);
 routes.get('/users/:id', UserController.show);
+// endregion
 routes.post('/users', UserController.store);
 
 routes.post('/sessions', SessionController.store);
