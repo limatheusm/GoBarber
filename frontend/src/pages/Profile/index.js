@@ -4,6 +4,7 @@ import { Form, Input } from "@rocketseat/unform";
 
 import { Container } from "./styles";
 import { updateProfileRequest } from "~/store/modules/user/actions";
+import AvatarInput from "./AvatarInput";
 
 const Strings = {
   NAME_PLACEHOLDER: "Nome Completo",
@@ -26,6 +27,7 @@ export default function Profile() {
   return (
     <Container>
       <Form initialData={profile} onSubmit={handleSubmit}>
+        <AvatarInput name="avatar_id" />
         <Input name="name" placeholder={Strings.NAME_PLACEHOLDER} />
         <Input
           name="email"
