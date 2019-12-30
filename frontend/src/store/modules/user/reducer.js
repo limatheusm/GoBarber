@@ -14,6 +14,10 @@ export default function user(state = INITIAL_STATE, action) {
         draft.profile = action.payload.user;
         break;
       }
+      case AuthTypes.SIGN_OUT: {
+        draft.profile = null;
+        break;
+      }
       case Types.UPDATE_PROFILE_SUCCESS: {
         draft.profile = action.payload.profile;
         break;
