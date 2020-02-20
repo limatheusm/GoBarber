@@ -13,11 +13,11 @@ type Props = {
   icon?: MaterialIconsGlyphs,
 };
 
-function Input({ style, icon }: Props, ref: ?TInput) {
+function Input({ style, icon, ...rest }: Props, ref: ?TInput) {
   return (
     <Container style={style}>
       {icon && <Icon name={icon} size={20} color={Colors.INPUT_ICON} />}
-      <TInput ref={ref} />
+      <TInput ref={ref} {...rest} />
     </Container>
   );
 }

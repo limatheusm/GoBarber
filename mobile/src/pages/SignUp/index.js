@@ -28,6 +28,12 @@ export default function SignIn({ navigation }: Props) {
         <Image source={logo} />
         <Form>
           <FormInput
+            icon="person-outline"
+            autoCorrect={false}
+            autoCapitalize="none"
+            placeholder="Nome Completo"
+          />
+          <FormInput
             icon="mail-outline"
             keyboardType="email-address"
             autoCorrect={false}
@@ -38,8 +44,8 @@ export default function SignIn({ navigation }: Props) {
 
           <SubmitButton onPress={() => {}}>Entrar</SubmitButton>
         </Form>
-        <SignLink onPress={() => navigation.navigate('SignUp')}>
-          <SignLinkText>Criar conta gratuita</SignLinkText>
+        <SignLink onPress={() => navigation.navigate('SignIn')}>
+          <SignLinkText>Já tenho conta</SignLinkText>
         </SignLink>
       </Container>
     </Background>
