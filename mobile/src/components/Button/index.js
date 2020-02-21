@@ -1,17 +1,11 @@
-// @flow
-
-import React, { type Node } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { ActivityIndicator } from 'react-native';
 
 import { Container, Text } from './styles';
 import Colors from '~/styles/colors';
 
-type Props = {
-  children: Node,
-  loading: boolean,
-};
-
-export default function Button({ children, loading = false, ...rest }: Props) {
+export default function Button({ children, loading = false, ...rest }) {
   return (
     <Container {...rest}>
       {loading ? (
@@ -22,3 +16,8 @@ export default function Button({ children, loading = false, ...rest }: Props) {
     </Container>
   );
 }
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  loading: PropTypes.bool.isRequired,
+};

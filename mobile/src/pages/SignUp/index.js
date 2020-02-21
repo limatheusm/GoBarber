@@ -1,9 +1,6 @@
-// @flow
-
-import React from 'react';
+import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 import { Image } from 'react-native';
-import { StackNavigationProp } from '@react-navigation/stack';
-import { StackNavigationState } from '@react-navigation/native';
 
 import logo from '~/assets/logo.png';
 import Background from '~/components/Background';
@@ -17,11 +14,12 @@ import {
   SignLinkText,
 } from './styles';
 
-type Props = {
-  navigation: StackNavigationProp<StackNavigationState>,
-};
+export default function SignIn({ navigation }) {
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-export default function SignIn({ navigation }: Props) {
+  function handleSubmit() {}
+
   return (
     <Background>
       <Container>
@@ -32,6 +30,8 @@ export default function SignIn({ navigation }: Props) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Nome Completo"
+            returnKeyType="next"
+            onSubmitEditing={() => emailRef.current.focus()}
           />
           <FormInput
             icon="mail-outline"
@@ -39,10 +39,20 @@ export default function SignIn({ navigation }: Props) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Email"
+            returnKeyType="next"
+            onSubmitEditing={() => passwordRef.current.focus()}
           />
-          <FormInput icon="lock-outline" secureTextEntry placeholder="Senha" />
+          <FormInput
+            icon="lock-outline"
+            secureTextEntry
+            placeholder="Senha"
+            returnKeyType="send"
+            onSubmitEditing={handleSubmit}
+          />
 
-          <SubmitButton onPress={() => {}}>Entrar</SubmitButton>
+          <SubmitButton loading={false} onPress={handleSubmit}>
+            Acessar
+          </SubmitButton>
         </Form>
         <SignLink onPress={() => navigation.navigate('SignIn')}>
           <SignLinkText>Já tenho conta</SignLinkText>
@@ -51,3 +61,9 @@ export default function SignIn({ navigation }: Props) {
     </Background>
   );
 }
+
+SignIn.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};

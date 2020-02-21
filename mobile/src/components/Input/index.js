@@ -1,19 +1,12 @@
-// @flow
 import React, { forwardRef } from 'react';
-import type { ViewStyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
-import Icon, {
-  type MaterialIconsGlyphs,
-} from 'react-native-vector-icons/MaterialIcons';
+import PropTypes from 'prop-types';
+import { ViewPropTypes } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Colors from '~/styles/colors';
 import { Container, TInput } from './styles';
 
-type Props = {
-  style?: ViewStyleProp,
-  icon?: MaterialIconsGlyphs,
-};
-
-function Input({ style, icon, ...rest }: Props, ref: ?TInput) {
+function Input({ style, icon, ...rest }, ref) {
   return (
     <Container style={style}>
       {icon && <Icon name={icon} size={20} color={Colors.INPUT_ICON} />}
@@ -22,9 +15,9 @@ function Input({ style, icon, ...rest }: Props, ref: ?TInput) {
   );
 }
 
-Input.defaultProps = {
-  style: {},
-  icon: null,
+Input.propTypes = {
+  style: ViewPropTypes.style.isRequired,
+  icon: PropTypes.string.isRequired,
 };
 
-export default forwardRef<any, Props>(Input);
+export default forwardRef(Input);
