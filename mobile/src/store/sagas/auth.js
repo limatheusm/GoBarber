@@ -29,7 +29,6 @@ export function* signIn({ payload: { email, password } }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(Creators.signInSuccess(token, user));
-    // history.push('/dashboard');
   } catch (error) {
     Alert.alert(Strings.ERROR_TITLE, Strings.SIGN_IN_FAILURE_MESSAGE);
     yield put(Creators.signFailure());
@@ -46,7 +45,6 @@ export function* signUp({ payload: { name, email, password } }) {
     });
 
     // yield put(Creators.signUpSuccess());
-    // history.push('/');
   } catch (error) {
     Alert.alert(Strings.ERROR_TITLE, Strings.SIGN_UP_FAILURE_MESSAGE);
     yield put(Creators.signFailure());
@@ -65,9 +63,7 @@ export function setToken({ payload }) {
   }
 }
 
-export function signOut() {
-  // history.push("/");
-}
+export function signOut() {}
 
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
