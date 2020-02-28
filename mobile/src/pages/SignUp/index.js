@@ -47,6 +47,7 @@ export default function SignIn({ navigation }) {
             onChangeText={setName}
           />
           <FormInput
+            ref={emailRef}
             icon="mail-outline"
             keyboardType="email-address"
             autoCorrect={false}
@@ -58,6 +59,7 @@ export default function SignIn({ navigation }) {
             onChangeText={setEmail}
           />
           <FormInput
+            ref={passwordRef}
             icon="lock-outline"
             secureTextEntry
             placeholder="Senha"

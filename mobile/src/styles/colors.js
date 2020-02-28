@@ -5,6 +5,7 @@ const Colors = {
   INPUT_PLACEHOLDER: 'rgba(255, 255, 255, 0.8)',
   BUTTON_BACKGROUND: '#3b9eff',
   PRIMARY: '#7159c1',
+  RED: '#f64c75',
 };
 
 export default Colors;

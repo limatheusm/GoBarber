@@ -15,7 +15,13 @@ const Tab = createBottomTabNavigator();
 
 function AuthRoutes() {
   return (
-    <Stack.Navigator headerMode="none" mode="modal">
+    <Stack.Navigator
+      headerMode="none"
+      mode="modal"
+      screenOptions={{
+        animationTypeForReplace: 'pop',
+      }}
+    >
       <>
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />

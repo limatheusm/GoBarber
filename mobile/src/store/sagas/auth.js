@@ -43,8 +43,6 @@ export function* signUp({ payload: { name, email, password } }) {
       password,
       provider: false,
     });
-
-    // yield put(Creators.signUpSuccess());
   } catch (error) {
     Alert.alert(Strings.ERROR_TITLE, Strings.SIGN_UP_FAILURE_MESSAGE);
     yield put(Creators.signFailure());
@@ -63,11 +61,8 @@ export function setToken({ payload }) {
   }
 }
 
-export function signOut() {}
-
 export default all([
   takeLatest('persist/REHYDRATE', setToken),
   takeLatest(Types.SIGN_IN_REQUEST, signIn),
   takeLatest(Types.SIGN_UP_REQUEST, signUp),
-  takeLatest(Types.SIGN_OUT, signOut),
 ]);
